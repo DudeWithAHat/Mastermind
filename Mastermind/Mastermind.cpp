@@ -178,9 +178,8 @@ bool Mastermind::play() {
 				cin >> choices[i];
 		}
 		if (isCorrect(choices)) {
-			cout << "You Win!\n";
+			cout << "You Won in "<< turns << " turns!\n";
 			addScore(calculateScore());
-			cout << turns << endl;
 			cout << "Current Score is: " << score << endl;
 			cout << "Next round..." << endl;
 			nextRound();

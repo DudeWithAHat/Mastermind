@@ -4,9 +4,7 @@
 // 1.0 - Introduced.
 #include "Standard.h"
 #include "Mastermind.h"
-#include <filesystem>
 
-//namespace fs = std::filesystem;
 
 int displayMenu1();
 void getHighScore(fstream&);
@@ -67,14 +65,14 @@ int displayMenu1() {
 *  Gets a high score from the user.
 */
 void getHighScore(fstream& file) {
-	
+	file.clear();
+	file.seekg(0L, ios::beg);
+
 	if (file.peek() == std::fstream::traits_type::eof()) {
 		cout << "There are no current scores.\n";
 	}
 	else {
 		int tempHighScore;
-		file.clear();
-		file.seekg(0L, ios::beg);
 		file.read(reinterpret_cast<char*>(&tempHighScore), sizeof(tempHighScore));
 
 		cout << "The current high score is " << tempHighScore << endl;
